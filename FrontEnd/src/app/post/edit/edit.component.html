@@ -1,0 +1,35 @@
+<div>
+    <h1>Update User</h1>
+    <button routerLink="/index">Go back</button>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div>
+            <label for="id">Id</label>
+            <input formControlName="id" id="id" type="number">
+            <div *ngIf="f.id.touched && f.id.invalid" class="alert alert-danger">
+                <div *ngIf="f.id.errors.required">Id is required.</div>
+            </div>
+        </div>
+        <div>
+            <label for="name">Name</label>
+            <input formControlName="name" id="name" type="text">
+            <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
+                <div *ngIf="f.name.errors.required">Name is required.</div>
+            </div>
+        </div>
+        <div>
+            <label for="email">Email</label>
+            <input formControlName="email" id="email" type="email">
+            <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
+                <div *ngIf="f.email.errors.required">Email is required.</div>
+            </div>
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input formControlName="password" id="password" type="password">
+            <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger">
+                <div *ngIf="f.password.errors.required">Password is required.</div>
+            </div>
+            <button type="submit" [disabled]="!form.valid">Update</button>
+        </div>
+    </form>
+</div>

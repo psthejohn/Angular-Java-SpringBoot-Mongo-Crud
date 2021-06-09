@@ -1,0 +1,51 @@
+<div class="container">
+    <h1>Create New Post</h1>
+    <button href="#" routerLink="/index">Back</button>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <table>
+            <div class="form-group">
+                <tr>
+                    <th><label for="id">Id :</label></th>
+                    <td><input formControlName="id" id="id" type="text" class="form-control">
+                        <div *ngIf="f.id.touched && f.id.invalid" class="alert alert-danger">
+                            <div *ngIf="f.id.errors.required">Id is required.</div>
+                        </div>
+                    </td>
+                </tr>
+            </div>
+            <div class="form-group">
+                <tr>
+                    <th><label for="name">Name :</label></th>
+                    <td><input formControlName="name" id="name" type="text" class="form-control">
+                        <div *ngIf="f.name.touched && f.name.invalid" class="alert alert-danger">
+                            <div *ngIf="f.name.errors.required">Name is required.</div>
+                        </div>
+                    </td>
+                </tr>
+            </div>
+            <div class="form-group">
+                <tr>
+                    <th><label for="email">Email</label></th>
+                    <td><input formControlName="email" id="email" type="text" class="form-control">
+                        <div *ngIf="f.email.touched && f.email.invalid" class="alert alert-danger">
+                            <div *ngIf="f.email.errors.required">Email is required.</div>
+                        </div>
+                    </td>
+                </tr>
+            </div>
+            <div class="form-group">
+                <tr>
+                    <th><label for="password">Password</label></th>
+                    <td><input formControlName="password" id="password" type="text" class="form-control">
+                        <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger">
+                            <div *ngIf="f.password.errors.required">Password is required.</div>
+                        </div>
+                    </td>
+                </tr>
+            </div>
+            <tr>
+                <td><button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button></td>
+            </tr>
+        </table>
+    </form>
+</div>
